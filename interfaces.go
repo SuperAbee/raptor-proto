@@ -11,6 +11,12 @@ type ServiceCenter interface {
 }
 
 type Service struct {
-	IP   string
-	Port string
+	Name  string     `json:"name"`
+	Hosts []Instance `json:"hosts"`
+}
+
+type Instance struct {
+	Ip      string `json:"ip"`
+	Port    uint64 `json:"port"`
+	Healthy bool   `json:"healthy"`
 }
