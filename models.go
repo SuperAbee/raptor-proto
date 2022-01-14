@@ -10,6 +10,7 @@ type Config struct {
 	Dependencies     []*Dependency // 任务依赖
 	RetryStrategy                  // 失败处理策略
 	ShardingStrategy               // 分片策略
+	ShardingResults  []*Sharding   // 静态分片结果
 }
 
 type Task struct {
@@ -28,4 +29,14 @@ type RetryStrategy struct {
 }
 
 type ShardingStrategy struct {
+	ShardingType  string // 分片类型：静态/动态
+	ShardingCount int    // 分片数量
+	DefaultCount  int    // 默认执行器数量
+	ParameterRole string // 分片规则 0=A，1=B
+}
+
+type Sharding struct {
+	ShardingItem int    // 分片序号
+	Parameter    string // 分片参数
+	Instance     string // 执行实例
 }
