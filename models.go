@@ -14,9 +14,9 @@ type Config struct {
 }
 
 type Task struct {
-	Type    string // 任务类型
-	Content string // 任务内容
-	Args    string // 任务参数
+	Type string // 任务类型
+	URI  string // URI
+	Body string // 任务体
 }
 
 type Trigger struct {
