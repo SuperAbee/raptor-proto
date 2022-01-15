@@ -23,6 +23,13 @@ type Trigger struct {
 }
 
 type Dependency struct {
+	Nodes []*string //涉及的所有任务id
+	Links []*edge   //任务依赖关系
+}
+
+type edge struct {
+	from string //前置条件
+	to   string //后置任务
 }
 
 type RetryStrategy struct {
